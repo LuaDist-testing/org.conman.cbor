@@ -1,11 +1,11 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "org.conman.cbor"
-version = "1.2.5-1"
+version = "1.2.7-1"
 
 -- LuaDist source
 source = {
-  tag = "1.2.5-1",
+  tag = "1.2.7-1",
   url = "git://github.com/LuaDist-testing/org.conman.cbor.git"
 }
 -- Original source
@@ -61,7 +61,7 @@ build =
   type = "make",
   build_variables =
   {
-    CC      = "c99",
+    CC      = "$(CC)",
     CFLAGS  = "$(CFLAGS) -DNDEBUG -I$(LUA_INCDIR)",
     LDFLAGS = "$(LIBFLAG)",
     LUA     = "$(LUA)",
