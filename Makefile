@@ -21,8 +21,8 @@
 
 .PHONY:	clean check
 
-UNAME   = $(shell uname)
-VERSION = $(shell git describe --tag)
+UNAME   := $(shell uname)
+VERSION := $(shell git describe --tag)
 
 CC      = gcc -Wall -Wextra -pedantic
 CFLAGS  = -g -fPIC
@@ -47,20 +47,11 @@ override CFLAGS += -DVERSION='"$(VERSION)"'
 
 # ===================================================
 
-ifneq ($(LUA_INCDIR),)
-  override CFLAGS += -I$(LUA_INCDIR)
-endif
-
-ifeq ($(LIBDIR),)
-  LIBDIR=$(LUA_DIR)/lib/lua/$(shell lua -e "print(_VERSION:match '^Lua (.*)')")
-endif
-
-ifeq ($(LUADIR),)
-  LUADIR=$(LUA_DIR)/share/lua/$(shell lua -e "print(_VERSION:match '^Lua (.*)')")
-endif
+LIBDIR=$(LUA_DIR)/lib/lua/$(shell lua -e "print(_VERSION:match '^Lua (.*)')")
+LUADIR=$(LUA_DIR)/share/lua/$(shell lua -e "print(_VERSION:match '^Lua (.*)')")
 
 ifeq ($(VERSION),)
-  VERSION=1.0.0
+  VERSION=1.0.1
 endif
 
 # ===================================================
