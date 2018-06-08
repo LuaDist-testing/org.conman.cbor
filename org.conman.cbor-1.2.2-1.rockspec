@@ -1,11 +1,11 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "org.conman.cbor"
-version = "1.2.1-2"
+version = "1.2.2-1"
 
 -- LuaDist source
 source = {
-  tag = "1.2.1-2",
+  tag = "1.2.2-1",
   url = "git://github.com/LuaDist-testing/org.conman.cbor.git"
 }
 -- Original source
