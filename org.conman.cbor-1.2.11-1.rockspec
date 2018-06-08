@@ -1,11 +1,11 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "org.conman.cbor"
-version = "1.2.10-1"
+version = "1.2.11-1"
 
 -- LuaDist source
 source = {
-  tag = "1.2.10-1",
+  tag = "1.2.11-1",
   url = "git://github.com/LuaDist-testing/org.conman.cbor.git"
 }
 -- Original source
@@ -40,6 +40,8 @@ build =
 {
   platforms =
   {
+    linux   = { build_variables = { CC = "gcc -std=c99" } },
+    solaris = { build_varaibles = { CC = "c99"          } },    
     windows =
     {
       type    = "builtin",
@@ -72,11 +74,5 @@ build =
     LIBDIR = "$(LIBDIR)",
     LUADIR = "$(LUADIR)",
     LUA    = "$(LUA)",
-  },
-  
-  platforms =
-  {
-    linux   = { build_variables = { CC = "gcc -std=c99" } },
-    solaris = { build_varaibles = { CC = "c99"          } },
   }
 }
