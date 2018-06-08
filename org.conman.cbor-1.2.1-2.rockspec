@@ -1,23 +1,23 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "org.conman.cbor"
-version = "1.2.0-1"
+version = "1.2.1-2"
 
 -- LuaDist source
 source = {
-  tag = "1.2.0-1",
+  tag = "1.2.1-2",
   url = "git://github.com/LuaDist-testing/org.conman.cbor.git"
 }
 -- Original source
 -- source =
 -- {
 --   url = "git://github.com/spc476/CBOR.git",
---   tag = "1.2.0"
+--   tag = version:match "[^-]+"
 -- }
 
 description =
 {
-  homepage = "http://github.com/spc476/CBOR.git",
+  homepage   = "http://github.com/spc476/CBOR.git",
   maintainer = "Sean Conner <sean@conman.org>",
   license    = "LGPL-3",
   summary    = "The most comprehensive CBOR module in the Lua universe.",
@@ -38,6 +38,26 @@ dependencies =
 
 build =
 {
+  platforms =
+  {
+    windows =
+    {
+      type    = "builtin",
+      modules = 
+      {
+        ['org.conman.cbor_c'] = 
+        {
+          sources = { 'cbor_c.c', 'dnf.c' },
+          defines = { 'VERSION="' .. source.tag .. '"' },
+        },
+
+        ['org.conman.cbor']     = 'cbor.lua',
+        ['org.conman.cbor_s']   = 'cbor_s.lua',
+        ['org.conman.cbormisc'] = 'cbormisc.lua',
+      }
+    }
+  },
+
   type = "make",
   build_variables =
   {
